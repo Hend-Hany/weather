@@ -21,11 +21,16 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                primarySwatch: getThemeColor(
-                    BlocProvider.of<GetWeatherCubit>(context)
-                        .weatherModel
-                        ?.weatherCondition),
-              ),
+                  primarySwatch: getThemeColor(
+                      BlocProvider.of<GetWeatherCubit>(context)
+                          .weatherModel
+                          ?.weatherCondition),
+                  appBarTheme: AppBarTheme(
+                    backgroundColor: getThemeColor(
+                        BlocProvider.of<GetWeatherCubit>(context)
+                            .weatherModel
+                            ?.weatherCondition),
+                  )),
               home: const HomeView(),
             );
           },
